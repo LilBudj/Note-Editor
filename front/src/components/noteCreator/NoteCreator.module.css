@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.mainInput{
+    width: 60%
+}
+
+.addingButton{
+    width: 100px;
+    height: 100%
+}

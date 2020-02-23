@@ -11,7 +11,7 @@ const notes = {
     nextId: 7
 };
 
-exports.getNotes = () => ({notes});
+exports.getNotes = () => ({notes: notes.notes});
 
 class Note {
     constructor(text){

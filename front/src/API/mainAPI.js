@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const instance = axios.create({
     baseURL: 'http://localhost:8000/'
@@ -11,7 +11,7 @@ export const mainAPI = {
           (response) => response
       )
   },
-  addNote(){
-      return instance.post('', note).then(response => response)
+  addNote(note){
+      return instance.post('', {note}).then(response => response)
   }
 };
