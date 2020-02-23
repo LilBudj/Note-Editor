@@ -29,16 +29,17 @@ const getNotesAC = (notes) => ({type: GET_NOTES_FROM_SERVER, notes});
 export const addNoteThunkCreator = (note) => {
     return async (dispatch) => {
         let response = await mainAPI.addNote(note);
-        if (response.resultCode === 200){
+        if (response.status === 200){
             dispatch(addNoteAC(note))
         }
     }
 };
 export const getNotesThunkCreator = () => {
     return async (dispatch) => {
+        debugger
         let response = await mainAPI.getNotes();
-        if (response.resultCode === 200){
-            dispatch(getNotesAC(response.data.notes))
+        if (response.status === 200){
+            dispatch(getNotesAC(response.data.data.notes))
         }
     }
-}
+};

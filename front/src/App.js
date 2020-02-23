@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css'
 import NoteCreatorContainer from "./components/noteCreator/NoteCreatorContainer";
+import NotesCollectionContainer from "./components/NotesCollection/NotesCollectionContainer";
 
 class App extends React.Component {
 
@@ -9,6 +10,7 @@ class App extends React.Component {
     return (
         <div className="App">
             <NoteCreatorContainer/>
+            <NotesCollectionContainer/>
         </div>
     );
   }

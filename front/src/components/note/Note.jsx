@@ -5,6 +5,9 @@ const Note = (props) => {
     return(
         <div className={style.container}>
             <div className={style.text}>
+                {props.text}
+            </div>
+            <div className={style.toolBar}>
 
             </div>
         </div>

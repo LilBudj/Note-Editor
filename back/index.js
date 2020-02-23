@@ -1,9 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const getNotes = require("./repository");
-const addNote = require("./repository");
-const createResponse = require("./responseConstructor");
+const ops = require("./repository");
+const responseConstructor = require("./responseConstructor");
 
 const app = express();
 
@@ -11,12 +10,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send(createResponse(getNotes()))
+    res.send(responseConstructor
+        .createResponse(ops.getNotes()))
 });
 
 app.post('/', (req, res) => {
-    addNote(req.body.text);
-    res.send(createResponse())
+    ops.addNote(req.body.text);
+    res.send(responseConstructor.createResponse())
 });
 
 app.listen(8000, () => {

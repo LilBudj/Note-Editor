@@ -11,7 +11,7 @@ const notes = {
     nextId: 7
 };
 
-exports.getNotes = () => ({notes: notes.notes});
+const getNotes = () => ({notes: notes.notes});
 
 class Note {
     constructor(text){
@@ -22,8 +22,11 @@ class Note {
     }
 }
 
-exports.addNote = (text) => {
+const addNote = (text) => {
     let note = new Note(text);
     note.addId(note.nextId);
     notes.notes.push(note)
 };
+
+module.exports.getNotes = getNotes;
+module.exports.addNote = addNote;
