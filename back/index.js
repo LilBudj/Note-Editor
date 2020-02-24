@@ -10,13 +10,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+    console.log(ops.addNote("uuu"));
     res.send(responseConstructor
         .createResponse(ops.getNotes()))
 });
 
 app.post('/', (req, res) => {
-    ops.addNote(req.body.text);
-    res.send(responseConstructor.createResponse())
+    res.send(responseConstructor.createResponse(ops.addNote(req.body.note.text)))
 });
 
 app.listen(8000, () => {

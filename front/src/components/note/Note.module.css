@@ -1,6 +1,7 @@
 .container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: 30px;
     width: 200px;
     border: 1px solid black;
@@ -13,4 +14,22 @@
 
 .toolBar{
 
+}
+
+.tags{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag{
+    border-radius: 5px;
+    background-color: #61dafb;
+}
+
+.edit{
+    opacity: 0
+}
+
+.edit:hover{
+    opacity: 1
 }

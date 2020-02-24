@@ -28,15 +28,15 @@ const getNotesAC = (notes) => ({type: GET_NOTES_FROM_SERVER, notes});
 
 export const addNoteThunkCreator = (note) => {
     return async (dispatch) => {
+        debugger
         let response = await mainAPI.addNote(note);
         if (response.status === 200){
-            dispatch(addNoteAC(note))
+            dispatch(addNoteAC(response.data.data))
         }
     }
 };
 export const getNotesThunkCreator = () => {
     return async (dispatch) => {
-        debugger
         let response = await mainAPI.getNotes();
         if (response.status === 200){
             dispatch(getNotesAC(response.data.data.notes))

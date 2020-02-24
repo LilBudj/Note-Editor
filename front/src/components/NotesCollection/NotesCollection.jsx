@@ -6,7 +6,7 @@ const NotesCollection = (props) => {
     useEffect(() => {
        props.getNotes()
     }, []);
-    const notes = props.notes.map(n => <Note text={n.text}/>);
+    const notes = props.notes.map(n => <Note text={n.text} tags={n.tags} id={n.id} key={n.id}/>);
   return(
       <div className={style.collection}>
           {notes}
