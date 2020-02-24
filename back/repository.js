@@ -1,14 +1,11 @@
 const notes = {
     notes: [
-    {text: "ggg", tags: ["toDo"], id: 0},
-    {text: "ggg", tags: ["toDo"], id: 1},
-    {text: "ggg", tags: ["toDo"], id: 2},
-    {text: "ggg", tags: ["toDo"], id: 3},
-    {text: "ggg", tags: ["toDo"], id: 4},
-    {text: "ggg", tags: ["toDo"], id: 5},
-    {text: "ggg", tags: ["toDo"], id: 6},
+    {text: "To wash the dishes", tags: ["toDo"], id: 0},
+    {text: "What toDo...", tags: ["toDo"], id: 1},
+    {text: "To go for a walk", tags: ["toDo"], id: 2},
+    {text: "Learn to code", tags: ["toDo"], id: 3},
 ],
-    nextId: 7
+    nextId: 4
 };
 
 const getNotes = () => ({notes: notes.notes});
@@ -27,6 +24,29 @@ const addNote = (text) => {
     notes.nextId++;
     return note
 };
+const updateNote = (text, id, tags) => {
+    notes.notes = notes.notes.map(n => {
+        if (n.id === id){
+            n.text = text;
+            n.tags = tags
+        }
+        return n
+    });
+};
+const deleteNote = (id) => {
+    notes.notes = notes.notes.filter(n => n.id !== id)
+};
+const deleteTag = (id, tag) => {
+    notes.notes = notes.notes.map(n => {
+        if (n.id === id){
+            n.tags = n.tags.filter(t => t !== tag)
+        }
+        return n
+    })
+};
 
 module.exports.getNotes = getNotes;
 module.exports.addNote = addNote;
+module.exports.updateNote = updateNote;
+module.exports.deleteNote = deleteNote;
+module.exports.deleteTag = deleteTag;

@@ -33,3 +33,7 @@
 .edit:hover{
     opacity: 1
 }
+
+.highlight{
+    color: #61dafb;
+}
