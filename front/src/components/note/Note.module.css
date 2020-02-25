@@ -18,12 +18,13 @@
 
 .tags{
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .tag{
     border-radius: 5px;
     background-color: #61dafb;
+    margin: 4px
 }
 
 .edit{

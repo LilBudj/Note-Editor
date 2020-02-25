@@ -1,0 +1,9 @@
+.mainSelector{
+    display: flex;
+    justify-content: center;
+}
+
+.inputArea{
+    width: 200px;
+}
+

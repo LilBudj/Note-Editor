@@ -6,7 +6,7 @@ const NoteCreator = (props) => {
 
   return(
       <div className={style.container}>
-          <Input className={style.mainInput} value={props.inputValue} onChange={(e) => props.setInputValue(e.currentTarget.value)}/>
+          <Input className={style.mainInput} placeholder={"Add your note..."} value={props.inputValue} onChange={(e) => props.setInputValue(e.currentTarget.value)}/>
           <Button onClick={props.addNote} classname={style.addingButton}>Add</Button>
       </div>
   )

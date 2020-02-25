@@ -26,9 +26,8 @@ app.delete('/', (req, res) => {
     res.send(responseConstructor.createResponse(ops.deleteNote(+req.query.id)))
 });
 
-app.delete('/tag/', (req, res) => {
-    console.log(ops.getNotes());
-    res.send(responseConstructor.createResponse(ops.deleteTag(+req.query.id, +req.query.tag)))
+app.delete('/tag', (req, res) => {
+    res.send(responseConstructor.createResponse(ops.deleteTag(+req.query.id, req.query.tag)))
 });
 
 app.listen(8000, () => {

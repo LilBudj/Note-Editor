@@ -4,6 +4,7 @@ const GET_NOTES_FROM_SERVER = 'app/GET_NOTES_FROM_SERVER';
 const UPDATE_NOTE = 'app/UPDATE_NOTE';
 const DELETE_NOTE = 'app/DELETE_NOTE';
 const DELETE_TAG = 'app/DELETE_TAG';
+const SORT_BY_TAG = 'app/SORT_BY_TAG';
 
 const initState = {
     notes: []
@@ -28,7 +29,7 @@ export const appReducer = (state = initState, action) => {
                 notes: state.notes.map(n => {
                     if (n.id === action.id){
                         n.text = action.text;
-                        n.text = action.tags
+                        n.tags = action.tags
                     }
                     return n
                 })
@@ -46,12 +47,16 @@ export const appReducer = (state = initState, action) => {
                 ...state,
                 notes: state.notes.map(n => {
                     if (n.id === action.id){
-                        return {
-                            ...n,
-                            tags: n.tags.filter(t => t !== action.tag)
-                        }
+                        n.tags = n.tags.filter(t => t !== action.tag)
                     }
+                    return n
                 })
+            }
+        }
+        case SORT_BY_TAG: {
+            return {
+                ...state,
+                notes: state.notes.filter(n => n.tags.includes(action.tag))
             }
         }
         default: return state
@@ -61,8 +66,9 @@ export const appReducer = (state = initState, action) => {
 const addNoteAC = (note) => ({type: ADD_NOTE, note});
 const getNotesAC = (notes) => ({type: GET_NOTES_FROM_SERVER, notes});
 const updateNoteAC = (text, id, tags) => ({type: UPDATE_NOTE, text, id, tags});
-const deleteNoteAC = (id) => ({type: DELETE_NOTE, id});
-const deleteTagAC = (id, tag) => ({type: DELETE_TAG, id, tag});
+export const deleteNoteAC = (id) => ({type: DELETE_NOTE, id});
+export const deleteTagAC = (id, tag) => ({type: DELETE_TAG, id, tag});
+export const sortByTagsAC = (tag) => ({type: SORT_BY_TAG, tag});
 
 export const addNoteThunkCreator = (note) => {
     return async (dispatch) => {

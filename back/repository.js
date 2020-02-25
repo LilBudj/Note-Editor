@@ -39,10 +39,10 @@ const deleteNote = (id) => {
 const deleteTag = (id, tag) => {
     notes.notes = notes.notes.map(n => {
         if (n.id === id){
-            n.tags = n.tags.filter(t => t !== tag)
+            return {...n, tags: n.tags.filter(t => t !== tag)}
         }
-        return n
-    })
+        else return n
+    });
 };
 
 module.exports.getNotes = getNotes;
