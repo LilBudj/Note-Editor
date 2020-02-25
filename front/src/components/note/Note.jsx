@@ -23,10 +23,21 @@ const Note = (props) => {
         props.deleteTag(props.id, tag)
     };
     const addTags = (input) => {
+        let tagSymbols = [];
+        let position = 0;
+        while (true) {
+            let foundPos = input.indexOf("#", position);
+            if (foundPos === -1) break;
+            tagSymbols.push(foundPos);
+            position = foundPos + 1;
+        }
 
-        let tag = input.slice(input.indexOf("#"), input.indexOf(" ", input.indexOf("#")));
-        if (!!tag) {
-            setTags([...tags, tag])
+        let newTags = [];
+        for (let i = 0; i < tagSymbols.length; i++) {
+            newTags.push(input.slice(tagSymbols[i], input.indexOf(" ", tagSymbols[i])));
+        }
+        if (!!newTags) {
+            setTags([...tags, newTags])
         }
     };
 

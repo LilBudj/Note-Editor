@@ -13,7 +13,7 @@ const getNotes = () => ({notes: notes.notes});
 class Note {
     constructor(text) {
         this.text = text;
-        this.tags = ["toDo"];
+        this.tags = ["#toDo"];
         this.id = notes.nextId
     }
 }
