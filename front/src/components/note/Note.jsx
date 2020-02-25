@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./Note.module.css";
 import {Button, Input} from "antd"
 
@@ -8,8 +8,11 @@ const Note = (props) => {
     const [tags, setTags] = useState(props.tags);
     const [showTagList, setShowTagList] = useState(false);
 
+    useEffect(() => {
+        updateNote()
+    }, [tags]);
+
     const updateNote = () => {
-        debugger
         props.updateNote(inputText, props.id, tags);
         setEditMode(false)
     };
@@ -22,7 +25,6 @@ const Note = (props) => {
     const addTags = (input) => {
 
         let tag = input.slice(input.indexOf("#"), input.indexOf(" ", input.indexOf("#")));
-        debugger
         if (!!tag) {
             setTags([...tags, tag])
         }
@@ -39,8 +41,7 @@ const Note = (props) => {
             </div> : <Input value={inputText} onChange={(e) => {
                 setInputText(e.currentTarget.value)
             }} onBlur={(e) => {
-                addTags(e.currentTarget.value);
-                updateNote()}}/>}
+                addTags(e.currentTarget.value)}}/>}
             <div className={style.tags}>
                 {tagsArray}
                 <Button onClick={()=>setShowTagList(true)}>+</Button>

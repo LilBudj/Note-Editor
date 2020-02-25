@@ -1,9 +1,9 @@
 const notes = {
     notes: [
-    {text: "To wash the dishes", tags: ["toDo"], id: 0},
-    {text: "What toDo...", tags: ["toDo"], id: 1},
-    {text: "To go for a walk", tags: ["toDo"], id: 2},
-    {text: "Learn to code", tags: ["toDo"], id: 3},
+    {text: "To wash the dishes", tags: ["#toDo"], id: 0},
+    {text: "What toDo...", tags: ["#toDo"], id: 1},
+    {text: "To go for a walk", tags: ["#toDo"], id: 2},
+    {text: "Learn to code", tags: ["#toDo"], id: 3},
 ],
     nextId: 4
 };
