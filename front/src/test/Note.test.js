@@ -15,7 +15,7 @@ afterEach( () => {
     container = null;
 });
 
-it("renders track correctly", () => {
+it("renders note correctly", () => {
     act( () => {
         render(<Note text={"What to do..."} tags={["#toDo"]}/>, container)
     });
