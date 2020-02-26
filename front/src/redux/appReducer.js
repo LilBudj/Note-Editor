@@ -65,7 +65,7 @@ export const appReducer = (state = initState, action) => {
 
 const addNoteAC = (note) => ({type: ADD_NOTE, note});
 const getNotesAC = (notes) => ({type: GET_NOTES_FROM_SERVER, notes});
-const updateNoteAC = (text, id, tags) => ({type: UPDATE_NOTE, text, id, tags});
+export const updateNoteAC = (text, id, tags) => ({type: UPDATE_NOTE, text, id, tags});
 export const deleteNoteAC = (id) => ({type: DELETE_NOTE, id});
 export const deleteTagAC = (id, tag) => ({type: DELETE_TAG, id, tag});
 export const sortByTagsAC = (tag) => ({type: SORT_BY_TAG, tag});

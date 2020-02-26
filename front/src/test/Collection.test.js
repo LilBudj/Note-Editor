@@ -23,7 +23,7 @@ it ('renders tracks correctly', () => {
             {text: "What toDo...", tags: ["toDo"], id: 1},
             {text: "To go for a walk", tags: ["toDo"], id: 2},
             {text: "Learn to code", tags: ["toDo"], id: 3},
-        ]}/> , container)
+        ]} getNotes={getNotesAC} updateNote={updateNoteAC} deleteNote={deleteNoteAC} deleteTag={deleteTagAC}/> , container)
     });
 
     expect(

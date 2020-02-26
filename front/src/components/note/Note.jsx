@@ -41,7 +41,7 @@ const Note = (props) => {
         }
     };
 
-    let tagsArray = props.tags.map(t => <span className={style.tag} onClick={() => deleteTag(t)}>{t}  </span>);
+    let tagsArray = props.tags.map((t, i) => <span className={style.tag} key={i} onClick={() => deleteTag(t)}>{t}  </span>);
     const textBlocks = inputText.split(" ")
         .map(b => <span className={(props.tags.includes(b)?style.highlight:"")}>{b} </span>);
 
